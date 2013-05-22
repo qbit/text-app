@@ -75,7 +75,9 @@ FILES = [
   'lib/ace/src-min-noconflict/mode-text.js',
   'lib/ace/src-min-noconflict/mode-xml.js',
   'lib/ace/src-min-noconflict/mode-xquery.js',
-  'lib/ace/src-min-noconflict/mode-yaml.js'
+  'lib/ace/src-min-noconflict/mode-yaml.js',
+  'lib/ace/src-min-noconflict/keybinding-vim.js',
+  'lib/ace/src-min-noconflict/keybinding-emacs.js'
 ]
 
 MANIFEST = 'manifest.json'

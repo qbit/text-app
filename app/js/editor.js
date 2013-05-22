@@ -1,5 +1,13 @@
 var EditSession = ace.require('ace/edit_session').EditSession;
 var UndoManager = ace.require('ace/undomanager').UndoManager;
+var vim = ace.require('ace/keyboard/vim').handler;
+var emacs = ace.require('ace/keyboard/emacs').handler;
+var keybindings = {
+    // Null = use "default" keymapping
+    ace: null,
+    vim: vim,
+    emacs: emacs
+};
 
 /**
  * @constructor
@@ -134,6 +142,7 @@ Editor.prototype.initFromSettings_ = function() {
   this.showHideMargin_(this.settings_.get('margin'),
                        this.settings_.get('margincol'));
   this.setTheme_();
+  this.setMode_();
 };
 
 /**
@@ -239,6 +248,9 @@ Editor.prototype.onSettingsChanged_ = function(e, key, value) {
     case 'theme':
       this.setTheme_();
       break;
+    case 'mode':
+      this.setMode_();
+      break;
   }
 }
 
@@ -284,6 +296,13 @@ Editor.prototype.setTheme_ = function() {
   console.log('setTheme_', theme);
   this.editor_.setTheme('ace/theme/text_' + theme);
   $('body').attr('theme', theme);
+};
+
+Editor.prototype.setMode_ = function() {
+  var mode = this.settings_.get('mode');
+  console.log('setMode_', mode);
+  this.editor_.setKeyboardHandler(keybindings[mode]);
+  $('body').attr('mode', mode);
 };
 
 /**

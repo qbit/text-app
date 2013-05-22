@@ -34,6 +34,7 @@ Settings.SETTINGS = {
   'margincol': {'default': 80, 'type': 'integer', 'widget': 'number'},
   'tabsize': {'default': 2, 'type': 'integer', 'widget': 'number'},
   'theme': {'default': 'default', 'type': 'string', 'widget': 'select'},
+  'mode': {'default': 'vim', 'type': 'string', 'widget': 'select'},
   'wraplines': {'default': true, 'type': 'boolean', 'widget': 'checkbox'}
 };
 
